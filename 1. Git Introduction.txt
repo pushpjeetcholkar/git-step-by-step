@@ -1,0 +1,76 @@
+What is Git?
+===========
+
+Git is a distributed version control system (DVCS) used to track changes in source code during software development.
+
+Key Features of Git:
+
+1) Version Control: Keeps history of every code change.
+
+2) Distributed: Every developer has a full copy of the repository.
+
+3) Branching and Merging: Supports working on features independently and then merging them.
+
+4) Offline Work: You can commit changes even without internet.
+
+Example Use Case:
+==================
+--> A developer working on a new feature can:
+
+--> Create a new branch
+
+--> Make changes and commit locally
+
+--> Merge the branch back into the main codebase
+
+
+What is GitHub?
+===============
+
+GitHub is a cloud-based hosting platform for Git repositories that provides tools for collaboration, code sharing, and project management.
+
+Key Features of GitHub:
+=======================
+
+Remote Repository Hosting: Store your code and Git history in the cloud.
+
+Collaboration: Work with teams using pull requests, issues, and reviews.
+
+Web Interface: Browse code, manage repositories, and track changes visually.
+
+CI/CD Integration: Automate testing, deployment, and more.
+
+Open Source Contribution: Find and contribute to thousands of open-source projects.
+
+Git vs GitHub – Key Differences
+================================================================================
+Feature		Git				GitHub
+================================================================================
+Type		Version control system		Cloud-based Git repository host
+Location	Local (your system)		Remote (online)
+Internet Req.	Not required for Git actions	Required for pushing/pulling
+Usage		Track code changes locally	Collaborate and share code
+Command Line	Yes (CLI based)			CLI + Web Interface
+
+Classroom Analogy:
+==================
+Git is like MS Word's Track Changes feature for code.
+GitHub is like Google Drive where you store, share, and collaborate on those documents.
+
+
+Suggested Lab Activity:
+========================
+
+1) Install Git on your system.
+
+2) Initialize a Git repository using git init.
+
+3) Create a GitHub account.
+
+4)vCreate a remote repository on GitHub.
+
+5) Push your local Git repo to GitHub using:
+
+git remote add origin https://github.com/yourusername/repo.git
+
+git push -u origin master
