@@ -1,0 +1,58 @@
+ What is a Pull Request?
+=====================
+
+A Pull Request (PR) is a collaborative request to merge changes from one branch or repository into another. It is commonly used in platforms like GitHub, GitLab, Bitbucket, etc.
+
+ You raise a PR when you want someone to review your changes and then merge them into their repository/branch.
+
+ Example Scenario:
+
+1. You fork a repo awesome-project from someone else's GitHub.
+2. You make changes in your own fork.
+3. You send a pull request to the original repo to request them to merge your changes.
+
+---
+
+  Can Someone Send a Pull Request to My Repo?
+
+ Yes, if you have a public repository, any GitHub user can:
+
+ Fork your repository
+ Make changes in their fork
+ Send you a pull request
+
+Then you, as the repository owner, can:
+
+ Review their changes
+ Comment, suggest changes
+ Accept (merge) or decline (close) the PR
+
+---
+
+  Can You Send a Pull Request to Someone Else's Repo?
+
+ Yes, you can!
+
+Typical Workflow to Send a PR:
+
+1. Fork their repo to your GitHub account.
+2. Clone your fork:
+
+   bash
+   git clone https://github.com/your-username/their-repo.git
+   cd their-repo
+   
+3. Create a new branch and make your changes.
+4. Commit and push your branch to your forked repo.
+5. Go to GitHub and click "Compare & Pull Request".
+6. Submit a pull request to their original repo.
+
+==================== Pull Request (PR) Summary ====================
+
+Scenario                      				| Possible | How
+----------------------------------------------|------------|-------------------------------------------------------------
+Can someone send you a PR?   	| Yes          | They fork your public repo, make changes, and raise a PR
+Can you send a PR to others? 	| Yes          | Fork their repo, make changes, push, and raise a PR
+What is a PR?                			| Yes          | A request to merge changes from one branch/repo to another
+
+==================================================================

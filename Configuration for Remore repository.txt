@@ -1,0 +1,29 @@
+1. git push origin master
+
+Pushes your local branch (master) to the remote repository named origin.
+
+origin: Default name for your remote repository (usually GitHub, GitLab, etc.).
+
+master: The branch you're pushing (in many newer repos, it's called main instead of master).
+
+ 2. --set-upstream
+===============
+Tells Git to link your local master branch with the remote master branch at origin.
+
+This means:
+
+Next time, you can simply type git push or git pull without mentioning the remote or branch name.
+
+Git remembers the relationship between your local and remote branches.
+
+ Example Scenario:
+================
+You just created a new local branch master, and it's not yet linked to the remote master:
+
+
+git push --set-upstream origin master
+After this, Git links them together, so in the future:
+
+
+git push        # Will push to origin/master
+git pull        # Will pull from origin/master

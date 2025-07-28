@@ -1,0 +1,98 @@
+Undo local commit
+==================
+
+To uncommit a commit in a local repository, you can use git reset. Below are different ways to do it based on your scenario, along with examples.
+
+ 1. Undo the last commit, keep the changes in the working directory
+
+Command:
+===========
+
+
+git reset --soft HEAD~1
+
+
+ What it does:
+============
+
+ Removes the last commit.
+ Keeps your file changes staged (ready to commit again).
+
+ Example:
+=========
+
+git commit -m "Added wrong feature"
+git reset --soft HEAD~1
+
+ Now you can edit your files and recommit correctly
+git commit -m "Corrected feature"
+
+
+ 2. Undo the last commit and unstage the changes
+
+Command:
+=============
+
+
+git reset --mixed HEAD~1
+
+
+What it does:
+===========
+
+ Removes the last commit.
+ Keeps changes in working directory but unstaged.
+ Allows you to re-add files with git add.
+
+ Example:
+===========
+
+
+git reset --mixed HEAD~1
+git add correct_file.py
+git commit -m "Proper commit"
+
+ 3. Undo the last commit and discard changes completely
+
+ Command:
+===========
+
+
+git reset --hard HEAD~1
+
+
+Warning:
+===========
+
+ This permanently deletes the last commit and the code changes.
+ Irreversible unless you saved the commit hash.
+
+ Example:
+==========
+
+
+git reset --hard HEAD~1
+
+
+ HEAD\~1 Meaning
+
+ HEAD points to the current commit.
+ HEAD~1 means “one commit before the current one.”
+
+ To Check the Effect
+
+Use this to see commit history:
+
+
+git log --oneline
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+| Feature                       		| git reset --soft                              		| git reset --hard                         	     	    
+| --------------------------------------| -----------------------------------------------	 | --------------------------------------------------- 
+| Commit history            	| Moves HEAD and removes commits	 | Moves HEAD and removes commits  
+| Staging area (index)      	|  Keeps changes staged                        |  Clears staging area                       	  
+| Working directory (files) 	|  Keeps your file changes                     |  Discards all file changes                 	  
+| Recovery                  		|  Safe, changes can be recommitted   |  Dangerous, changes are lost permanently  
+| Common use case         	| Amend or re-commit after editing commit message | Revert to a clean state, discard everything|
+
+

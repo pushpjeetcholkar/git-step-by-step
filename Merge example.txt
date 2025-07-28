@@ -1,0 +1,55 @@
+
+You merge the feature branch into the main branch to bring its changes into the main development line.
+
+ Example: Step-by-Step Merge Process
+=======================================
+You have:
+
+ master branch with initial code
+ new-feature branch with new changes
+
+ Step 1: Switch to the Main Branch
+
+
+git checkout master
+
+
+ Step 2: Merge the Feature Branch into Main
+
+
+git merge new-feature
+
+
+Now, all the changes from new-feature will be added into master.
+
+ Step 3: Check the Result
+
+
+cat file.txt
+
+
+You will now see content from both master and new-feature.
+
+ Step 4 (Optional): Push the Updated Master to Remote
+
+
+git push origin master
+
+
+ Behind the Scenes
+===============
+
+ Git finds the common ancestor of both branches.
+ It then applies the changes from the feature branch to the current branch.
+ If there are conflicts, Git will stop and ask you to resolve them manually.
+
+ Merge Summary
+==============
+
+| Action                                  | Description                                                  |
+| ------------------------------ --| ----------------------------------------------------|
+| git checkout master       | Switch to the main branch                     |
+| git merge new-feature  | Merge feature branch into master       |
+| git push origin master  | Push merged changes to remote repo |
+
+

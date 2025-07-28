@@ -1,0 +1,247 @@
+GIT ARCHITECTURE – WORKFLOW STAGES
+=============================================
+
+             +--------------------+                                         +---------------------------+
+             |   Workspace     | ←—— edit ——→   |  Working Directory |
+             +--------------------+                                         +----------------------------+
+                           │
+                            │ git add
+                            ▼
+             +---------------------+
+             |   Staging Area  |
+             +---------------------+
+                             │
+                             │ git commit
+                             ▼
+             +-----------------------+
+             | Local Repository|
+             +------------------------+
+                             │
+                             │ git push
+                             ▼
+             +----------------------------+
+             | Remote Repository |
+             +----------------------------+
+
+
+ COMPONENTS EXPLAINED
+
+| Component                                                                | Description                                                                                                          |
+| ---------------------------------- ----------------------------| ------------------------------------------------------------------------------------------   |
+| Working Directory (Workspace)                           | Your local project folder where you edit files.                                         |
+| Staging Area (Index)                                                 | A place where Git keeps track of files that you want to commit.      |
+| Local Repository (.git folder)                                 | Your commits are saved here. It’s your own local version history.    |
+| Remote Repository                                                  | GitHub, Bitbucket, GitLab, etc. This is where code is shared online.|
+
+ COMMON GIT COMMANDS – EXPLAINED WITH EXAMPLES
+======================================================
+
+
+ 1. git init
+
+Initializes a new Git repository in the current folder.
+
+git init
+---
+
+ 2. git clone <repo-url>
+
+Downloads an existing repository from GitHub or Bitbucket.
+
+git clone https://github.com/user/repo.git
+
+---
+
+ 3. git status
+
+Shows current status of files (modified, staged, untracked, etc.)
+
+git status
+
+---
+
+ 4. git add <file> or git add .
+
+Moves changes to the staging area.
+
+git add index.html           add a single file
+git add .                               add all modified files
+
+
+---
+
+ 5. git commit -m "message"
+
+Takes everything in the staging area and stores it in your local repository.
+
+git commit -m "Add login page"
+---
+
+ 6. git commit -a -m "msg"
+
+Add and commit tracked files only in one step.
+
+
+git commit -a -m "Fix header styles"
+
+other ways
+git add . && git commit -m "Your commit message"
+git commit -am "message" && git add . && git commit --amend --no-edit
+
+
+
+---
+
+ 7. git mv old new
+
+Moves or renames files under Git version control.
+
+git mv oldname.txt newname.txt
+
+
+---
+
+ 8. git rm file.txt
+
+Removes a file from the working directory and staging area.
+
+git rm temp.txt
+
+
+---
+
+ 9. git log
+
+Shows commit history.
+
+git log --oneline
+
+
+---
+
+ 10. git push origin branchname
+
+Push local commits to remote repo (GitHub, Bitbucket, etc.)
+
+git push --set-upstream origin master
+
+
+git push origin master
+
+But to do this first you have to Add the remote repository URL
+
+git remote add origin https://github.com/your-username/your-repo-name.git
+
+git remote add origin https://github.com/pushpjeetcholkar/website.git
+
+git push --set-upstream origin master
+
+git push origin master
+
+
+
+---
+
+ 11. git pull origin branchname
+
+Fetch latest changes from remote repo and merge them into your current branch.
+
+git pull origin master
+
+
+---
+
+ 12. git reset
+
+Unstage files from staging area.
+
+git reset file.txt    
+
+In Git, when you add a file using git add, it moves the file from the working directory to the staging area (index).
+
+If you change your mind and don’t want the file to be included in the next commit, you can unstage it — which means removing it from the staging area without deleting or modifying the file.
+---
+
+ 13. git reset --hard <commit>
+
+Reset your working directory and HEAD to a previous commit. All changes will be lost!
+
+
+git reset --hard abc123
+
+
+---
+
+ 14. git diff
+
+See what has changed before you commit.
+
+git diff                        all changes
+git diff --staged        staged changes
+
+
+---
+
+ 15. git checkout <branch or file>
+
+* Switch to another branch
+* OR restore a file from last commit
+
+bash
+git checkout dev
+git checkout -- index.html    discard local changes
+
+
+---
+
+ 16. git HEAD
+
+Represents the current commit reference you are on.
+
+bash
+git show HEAD               show latest commit
+git show HEAD~1             show previous commit
+
+
+---
+
+ 17. git branch
+
+View, create, delete, or switch branches.
+
+bash
+git branch                        	list branches
+git branch dev                    create dev branch
+git checkout dev          	switch to dev
+
+
+---
+
+ 18. git tag
+
+Mark a point in history (e.g., for releases).
+
+bash
+git tag v1.0
+git push origin v1.0
+
+
+---
+
+ 19. git remote -v
+
+Shows the remote repository URLs.
+
+bash
+git remote -v
+
+ BONUS: Workflow Example
+========================
+
+bash
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin git@bitbucket.org:your/repo.git
+git push -u origin master
+

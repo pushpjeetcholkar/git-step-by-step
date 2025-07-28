@@ -1,0 +1,109 @@
+ What is git fetch?
+
+git fetch is a safe way to update your local repository with changes from the remote repository, without modifying your working directory or local branches.
+
+Think of it like checking for updates—but not applying them yet.
+
+ What Happens When You Run git fetch?
+
+ It connects to the remote (e.g., GitHub)
+ Downloads new commits, branches, and tags
+ Updates your local copy of the remote (like origin/main)
+ Does not change your current branch or working files
+
+ Diagram
+
+
+Remote:          A ← B ← C ← D (main)
+                                            ↑
+Local:               A ← B ← C (origin/main)
+                                            ↑
+                                 You are on main
+
+Command:
+
+  git fetch origin
+
+Result:
+  origin/main updates to D, 
+  but your local main stays at C
+
+
+ Example: Step-by-Step
+
+ Scenario
+
+You and your teammate are working on the same repo. Your teammate pushes a new commit. You want to see those changes, but not merge them yet.
+
+ 1. Check current status
+
+bash
+git log --oneline main
+
+
+Shows:
+
+
+c123456 Fix UI bug
+b234567 Add login
+
+
+ 2. Run git fetch
+
+bash
+git fetch origin
+
+
+This updates:
+
+ origin/main (behind the scenes)
+ Leaves main unchanged
+
+ 3. Compare your branch with remote
+
+bash
+git log main..origin/main
+
+
+Shows the commits your teammate pushed.
+
+ fetch vs pull
+===============
+
+| Command     | What It Does                                   |
+| ----------- | ------------------------------------------------ |
+| git fetch | Gets new data from remote but does not merge |
+| git pull  | Does fetch + merge (applies the changes)                |
+
+---
+
+  When Should You Use git fetch?
+=============================
+
+| Situation                                              					    | Use git fetch? |
+| ------------------------------------------------------ --------------------| --------------------|
+| Before pulling changes to see what's new               	    |  Yes                    |
+| Before working on a new feature branch                 	    |  Yes                    |
+| If you want to inspect changes safely first            		    |  Yes                    |
+| To update remote tracking branches (e.g. origin/dev) |  Yes                     |
+
+ Example Use Case with Branch
+
+bash
+git fetch origin
+git checkout feature-x      Local branch
+git merge origin/feature-x  Merge fetched changes
+
+
+ Helpful Tip: Show All Fetched Branches
+
+bash
+git branch -r
+
+
+To compare:
+
+bash
+git diff main origin/main
+
+

@@ -1,0 +1,139 @@
+ What is git checkout?
+==================
+
+git checkout is used to:
+
+1. Switch between branches.
+2. Restore files from a previous commit.
+3. Create and move to a new branch (git checkout -b).
+
+---
+
+  Let’s Practice with a Simple Example
+
+We'll go through the following steps:
+
+---
+
+ Step 1: Initialize a Git Repository (if not already done)
+
+If your repo is not initialized:
+
+bash
+mkdir my-git-checkout-demo
+cd my-git-checkout-demo
+git init
+
+
+Create a file:
+
+bash
+echo "Line 1" > file.txt
+git add .
+git commit -m "Initial commit"
+
+
+---
+
+ Step 2: Create a New Branch and Switch to It
+
+bash
+git checkout -b new-feature
+
+
+Explanation:
+
+ -b creates a new branch called new-feature.
+ Git automatically switches to this new branch.
+
+You can check the branch:
+
+bash
+git branch
+
+
+Output:
+
+
+* new-feature
+  master
+
+* means you are connected to this repo.
+---
+
+ Step 3: Modify File in the New Branch
+
+bash
+echo "Line 2 - New feature" >> file.txt
+cat file.txt
+
+
+Add and commit:
+
+bash
+git add file.txt
+git commit -m "Added Line 2 in new-feature branch"
+
+
+---
+
+ Step 4: Switch Back to Master Using git checkout
+
+bash
+git checkout master
+
+
+Check file content:
+
+bash
+cat file.txt
+
+
+ You’ll only see:
+
+
+Line 1
+
+
+The change made in new-feature is not visible because you switched back to the master branch.
+
+---
+
+ Step 5: Use git checkout to Restore a File
+
+Suppose you accidentally edited file.txt and want to undo changes:
+
+bash
+echo "Oops change" > file.txt
+cat file.txt
+
+
+Now restore it:
+
+bash
+git checkout -- file.txt
+
+
+ This restores the file to the last committed state on the current branch.
+
+---
+
+Summary of git checkout Use Cases
+=============================
+
+
+| Use Case                                                    | Command                                              |
+| ------------------------------------------------- | ------------------------------------------------|
+| Switch to a branch                                 | git checkout branch-name                 |
+| Create and switch to a new branch  | git checkout -b new-branch               |
+| Restore a file from last commit          | git checkout -- filename                       |
+| Restore a file from another branch  | git checkout other-branch filename |
+
+
+As of Git version 2.23+, the command git switch is preferred for branch operations:
+
+git switch new-branch         switch to existing
+git switch -c new-branch      create and switch
+
+
+git checkout is still widely used and works the same.

@@ -1,0 +1,154 @@
+ Key Git Concepts
+===============
+
+ 1. HEAD
+
+ HEAD is a pointer to the current branch reference in your local repository.
+ It usually points to the latest commit on the branch you're working on.
+
+Example:
+If you're working on main:
+
+
+HEAD → main → Commit_X
+
+
+When you make a new commit:
+
+
+HEAD → main → Commit_Y (new)
+
+
+---
+
+ 2. origin/master
+
+ origin/master is the remote tracking branch.
+ It represents the last known state of the master branch on the remote repo (origin) when you last did a git fetch or git pull.
+
+> origin = default name of your remote repository
+> origin/master = master branch on the remote repo
+
+---
+
+ 3. Local vs Remote Relationship
+
+| Term            | Refers To                               |
+| --------------- | --------------------------------------- |
+| master        | Your local branch                       |
+| origin/master | The state of the remote master branch |
+| HEAD          | Your current commit reference           |
+
+---
+
+ Ahead / Behind Explained
+
+When is your local branch ahead of origin/master?
+
+ You've made local commits that are not yet pushed to the remote.
+ Git shows:
+
+  
+  Your branch is ahead of 'origin/master' by 2 commits.
+  
+
+> Use:
+
+bash
+git push
+
+
+---
+
+ When is your local branch behind origin/master?
+
+ The remote has new commits you haven’t pulled.
+ Git shows:
+
+  
+  Your branch is behind 'origin/master' by 2 commits.
+  
+
+> Use:
+
+bash
+git pull
+
+
+ When is your branch in sync?
+
+ Local and remote branches point to the same commit.
+ Git shows:
+
+  
+  Your branch is up to date with 'origin/master'.
+  
+
+ Examples to Visualize
+
+Let’s say this is your repo state:
+
+bash
+ Remote
+origin/master: A -- B -- C
+
+ Local (you made 2 extra commits)
+master:        A -- B -- C -- D -- E
+
+
+> Your branch is ahead by 2 commits
+> Solution: git push
+
+---
+
+bash
+ Remote
+origin/master: A -- B -- C -- D -- E
+
+ Local (you’re still at old commit)
+master:        A -- B -- C
+
+
+> Your branch is behind by 2 commits
+> Solution: git pull
+
+Merging & Rebase
+
+When your local and remote have diverged (both made changes):
+
+bash
+ Remote
+origin/master: A -- B -- C -- D
+
+ Local
+master:        A -- B -- C -- E
+
+
+> Both made different changes
+> You’ll see a merge conflict or use git pull --rebase to linearize history.
+
+---
+
+Useful Git Commands
+==================
+
+| Command                   	| What It Does                                        					   |
+| --------------------------------| -------------------------------------------------------------------------- |
+| git status              	   	| Shows current state & how far ahead/behind you are |
+| git log --oneline       	| Shows commits in short form                                      |
+| git log origin/master.. 	| Show local commits not in origin/master               |
+| git log ..origin/master 	| Show remote commits not in your local branch   |
+| git fetch               		| Updates info from remote repo without merging|
+| git pull                		| Fetch + merge from remote                         		  |
+| git push                		| Push local commits to remote                       		  |
+
+ Summary
+=========
+| Concept         	| Description (Local)                                                       			 			     | Description (Remote)      | Tracking Relationship                             		   |
+| ---------------	| -------------------------------------------------------------------------------------------------- | ----------------------------------| --------------------------------------------------------------- |
+| HEAD          	| Points to the latest commit of your currently checked-out local branch | —                              		| Always tracks the tip of the current branch       |
+| master        	| The local master branch (usually your main working branch)             	     | —                              		| Can track origin/master or any remote branch |
+| origin/master | Snapshot of the remote master branch from the last fetch/pull        	     | Lives on remote (e.g., GitHub) | Local tracks it using git fetch or git pull     |
+| Ahead       		| Local has commits not yet pushed to the remote branch                  	     | —                              		| git status will say: "Your branch is ahead..."       |
+| Behind      		| Local is missing commits that exist on remote branch                   		     | —                              		| git status will say: "Your branch is behind..."      |
+

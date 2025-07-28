@@ -1,0 +1,60 @@
+Reset Remote Repository
+=========================
+
+ Warning: Force-pushing can overwrite history and affect anyone else working with the repository. Use with caution.
+
+ Steps to Reset Remote Repository to a Previous Commit
+================================================
+
+ 1. Identify the Commit You Want to Reset To:
+
+Use this to view commit history:
+
+
+git log --oneline
+
+
+Example output:
+
+
+f9a8e12 Fix typo
+a7b5c3d Add login feature  ← You want to reset to this
+9d7c2e1 Initial commit
+
+
+ 2. Reset Local Repository to That Commit:
+
+
+git reset --hard a7b5c3d
+
+
+ 3. Force Push to Remote:
+
+
+git push origin main --force
+
+
+> Replace main with the name of your branch (like master, dev, etc.)
+
+ Use Case Example:
+================
+
+If your team pushed wrong commits to main branch and you want to undo them and reset remote:
+
+
+git reset --hard <correct_commit_hash>
+git push origin main --force
+
+
+ Safer Alternative (without history loss)
+===================================
+
+If you don’t want to lose history, prefer a revert:
+
+
+git revert <commit_hash>
+git push origin main
+
+
+This creates a new commit that undoes the changes, keeping history intact.
+

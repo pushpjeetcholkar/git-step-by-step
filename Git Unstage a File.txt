@@ -1,0 +1,72 @@
+What Does “Unstage a File” Mean in Git?
+=================================
+
+In Git, when you add a file using git add, it moves the file from the working directory to the staging area (index).
+
+If you change your mind and don’t want the file to be included in the next commit, you can unstage it — which means removing it from the staging area without deleting or modifying the file.
+
+ Command to Unstage a File
+==========================
+
+git reset HEAD <file>
+
+
+Example
+========
+
+ Step-by-step:
+
+1. Create and initialize a Git repo:
+
+mkdir test-repo
+cd test-repo
+git init
+
+
+2. Create a file and stage it:
+
+echo "Hello Git" > file1.txt
+git add file1.txt
+
+
+Now file1.txt is in the staging area.
+
+3. Check the status:
+
+git status
+
+Output:
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   file1.txt
+
+
+4. Unstage the file:
+
+git reset HEAD file1.txt
+
+Or (Git 2.23+ alternative):
+
+git restore --staged file1.txt
+
+
+5. Check the status again:
+
+git status
+Output:
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+        modified:   file1.txt
+
+The file is no longer staged but still exists and retains your changes.
+
+ Summary
+===========
+
+| Action                     | Command                     |
+| ------------------------| -------------------------       |
+| Stage a file            | git add file.txt               |
+| Unstage a file       | git reset HEAD file.txt |
+| View staged files | git status                         |

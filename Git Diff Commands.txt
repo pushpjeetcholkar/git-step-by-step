@@ -1,0 +1,93 @@
+ What is git diff?
+===================
+
+The git diff command is used to compare changes in your Git repository.
+
+It helps you:
+
+ See what has changed before committing.
+ Compare different branches or commits.
+ Check changes in the working directory, staging area, or between commits.
+
+---
+
+ Basic Use Cases
+=================
+
+| Command                                                | Purpose                                                                                                             |
+| ------------------------------------------------ | ----------------------------------------------------------------------------------------- |
+| git diff                                                       | Show changes in working directory (uncommitted and unstaged)|
+| git diff --staged or --cached               | Show changes between staging area and last commit                       |
+| git diff <commit1> <commit2>        | Show difference between two commits                                                   |
+| git diff <branch1> <branch2>          | Show difference between two branches                                                   |
+
+ Example: Working Directory Changes
+================================
+
+Suppose your file app.py has this content in last commit:
+
+
+print("Hello World")
+
+You modify it locally:
+
+print("Hello Git World")
+
+Now run:
+
+git diff
+
+Output:
+
+diff
+- print("Hello World")
++ print("Hello Git World")
+
+
+This shows what's different between your working directory and the last commit.
+
+ Example: Staged Changes
+========================
+
+git add app.py
+git diff --staged
+
+
+Now it compares the staged version with the last commit.
+
+ Example: Between Two Commits
+============================
+
+
+git diff abc123 def456
+
+
+This shows the difference between the two commit snapshots.
+
+Example: Between Branches
+=======================
+
+git diff main dev
+
+
+Shows changes in dev that are not in main.
+
+Tips
+====
+
+ Use git diff > patch.txt to save differences to a file.
+ Combine with --name-only to see just filenames:
+
+  
+ git diff --name-only
+
+
+Summary
+==========
+
+| Area Compared               | Command             |
+| -------------------------------- | ----------------------- |
+| Working dir vs. staging  | git diff                     |
+| Staging vs. last commit | git diff --staged     |
+| Between commits          | git diff <c1> <c2>  |
+| Between branches         | git diff <b1> <b2> |

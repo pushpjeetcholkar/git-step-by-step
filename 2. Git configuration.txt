@@ -1,0 +1,104 @@
+
+Git Configuration Commands
+=============================
+
+Configure User and Email/Git Config (Global/User-level) Syntax
+----------------------------------------------------------------------------------------
+
+git config --global user.name "Your Name"
+git config --global user.email "you@someplace.com"
+
+Check the configuration
+
+Listing All Global Configuration Settings
+git config --global --list
+
+Example using course author's information:
+
+git config --global user.name "Jason Taylor"
+git config --global user.email "jason@jasongtaylor.com"
+
+Seeing Git's User-based Config file
+cat ~/.gitconfig
+
+Git Configuration Commands
+==========================
+
+Objective:
+===========
+
+You will learn how to configure Git at the global (user) level by setting their name and email, viewing current settings, and understanding the configuration file.
+
+1. What is Git Configuration?
+=============================
+
+Before using Git effectively, you must configure your identity and other settings so Git knows who is performing actions like commits.
+
+Git uses three levels of configuration:
+
+1) System: Applies to every user on the system and all repositories.
+2) Global: Applies to a single user across all repositories.
+3) Local: Applies only to the specific repository.
+
+For most cases, we configure Git globally.
+
+2. Configuring User Identity (Global Level)
+===========================================
+
+Syntax:
+
+git config --global user.name "Your Name"
+git config --global user.email "your@email.com"
+
+
+Example 
+
+git config --global user.name "pushpjeet"
+git config --global user.email "pushpjeet@gmail.com"
+
+
+This sets your name and email globally for all repositories you work on.
+
+3. Viewing Global Git Settings
+==============================
+
+To view the global configuration settings you’ve applied:
+
+git config --global --list
+
+
+Output Example:
+===============
+
+user.name=pushpjeet
+user.email=pushpjeet@gmail.com
+
+
+This is useful to verify if the correct details are configured.
+
+4. Viewing the Git Config File
+==============================
+
+Git stores global config settings in a file located at ~/.gitconfig.
+
+cat ~/.gitconfig
+
+
+Example Output:
+================
+
+[user]
+    name = pushpjeet
+    email =pushpjeet@gmail.com
+
+
+This is the actual config file Git reads from. It’s useful for debugging or manual editing.
+
+
+Activity 
+====================
+
+1. Run the configuration commands using their own name and email.
+2. Verify using git config --global --list.
+3. View your .gitconfig using cat.
+

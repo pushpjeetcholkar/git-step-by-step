@@ -1,0 +1,23 @@
+Git Starting Commands
+=========================
+
+Check your current directory and then create a directory, we set repository here. 
+pwd
+mkdir projects
+cd projects
+mkdir website
+cd website
+
+ 
+
+ Start with Existing Project
+========================
+pwd
+cd projects/
+cd website/
+git init 
+ 
+
+git init [project-namw]
+
+project-name parameter is optional. If not supplied, Git will initialize the current directory.
