@@ -2,7 +2,7 @@ GIT ARCHITECTURE – WORKFLOW STAGES
 =============================================
 
              +--------------------+                                         +---------------------------+
-             |   Workspace     | ←—— edit ——→   |  Working Directory |
+             |   Workspace     | ←—— edit ——→           |  Working Directory |
              +--------------------+                                         +----------------------------+
                            │
                             │ git add
