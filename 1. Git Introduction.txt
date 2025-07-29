@@ -44,13 +44,13 @@ Open Source Contribution: Find and contribute to thousands of open-source projec
 
 Git vs GitHub – Key Differences
 ================================================================================
-Feature		Git				GitHub
+Feature			Git								GitHub/GitLab/Bitbucket
 ================================================================================
-Type		Version control system		Cloud-based Git repository host
-Location	Local (your system)		Remote (online)
-Internet Req.	Not required for Git actions	Required for pushing/pulling
-Usage		Track code changes locally	Collaborate and share code
-Command Line	Yes (CLI based)			CLI + Web Interface
+Type			Version control system			Cloud-based Git repository host
+Location		Local (your system)				Remote (online)
+Internet Req.	Not required for Git actions		Required for pushing/pulling
+Usage			Track code changes locally		Collaborate and share code
+Command Line	Yes (CLI based)					CLI + Web Interface
 
 Classroom Analogy:
 ==================
@@ -67,7 +67,7 @@ Suggested Lab Activity:
 
 3) Create a GitHub account.
 
-4)vCreate a remote repository on GitHub.
+4) Create a remote repository on GitHub.
 
 5) Push your local Git repo to GitHub using:
 
